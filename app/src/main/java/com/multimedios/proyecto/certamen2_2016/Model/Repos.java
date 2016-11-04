@@ -1,4 +1,4 @@
-package com.multimedios.proyecto.certamen2_2016;
+package com.multimedios.proyecto.certamen2_2016.Model;
 
 /**
  * Created by nicolas on 30-09-2016.

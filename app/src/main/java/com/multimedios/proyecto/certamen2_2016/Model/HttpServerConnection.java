@@ -1,4 +1,4 @@
-package com.multimedios.proyecto.certamen2_2016;
+package com.multimedios.proyecto.certamen2_2016.Model;
 
 import java.io.BufferedReader;
 import java.io.IOException;

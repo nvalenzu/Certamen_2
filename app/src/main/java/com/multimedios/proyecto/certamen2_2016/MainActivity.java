@@ -1,16 +1,17 @@
 package com.multimedios.proyecto.certamen2_2016;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.multimedios.proyecto.certamen2_2016.Presenters.GitSearch;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText txtUser;
     private Button btnBuscar;
+    private GitSearch mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,30 +22,9 @@ public class MainActivity extends AppCompatActivity {
         txtUser = (EditText)findViewById(R.id.editText);
         btnBuscar = (Button)findViewById(R.id.button_buscar);
 
-        //Implementamos el evento click del botón
-        btnBuscar.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                //Creamos el Intent
-                Intent intent = new Intent(MainActivity.this, ListFragment.class);
-
-                //Creamos la información a pasar entre actividades
-               // Bundle b = new Bundle();
-                //b.putString("USER", txtUser.getText().toString());
-
-                //Añadimos la información al intent
-                intent.putExtra("USER", txtUser.getText().toString());
-
-                //Iniciamos la nueva actividad
-                startActivity(intent);
+        mPresenter = new GitSearch(this);
 
 
-
-            }
-
-        });
     }
 
 

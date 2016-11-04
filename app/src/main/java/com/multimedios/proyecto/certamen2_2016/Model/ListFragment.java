@@ -1,6 +1,7 @@
-package com.multimedios.proyecto.certamen2_2016;
+package com.multimedios.proyecto.certamen2_2016.Model;
 
-import android.app.Fragment;
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.multimedios.proyecto.certamen2_2016.R;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -18,7 +21,7 @@ import java.util.ArrayList;
 /**
  * Created by nicolas on 30-09-2016.
  */
-public class ListFragment extends Fragment {
+public class ListFragment extends Activity{
 
     // nos permite asociarle la id del recyclerview creado en el layout
     private RecyclerView mRecyclerView;
@@ -31,6 +34,7 @@ public class ListFragment extends Fragment {
 
     private ArrayList<Repos> lista = new ArrayList<>();
     private MyAdapter adaptador;
+    ProgressDialog dialog = null;
 
     ArrayList<Repos> lista_respos = new ArrayList<>();
 
@@ -41,11 +45,6 @@ public class ListFragment extends Fragment {
         return fragment;
     }
 
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-
-    }
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saveInstanceState){
 
@@ -57,22 +56,19 @@ public class ListFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
 
+
         AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
 
             @Override
             protected void onPreExecute(){
-
+                super.onPreExecute();
             }
 
             @Override
             protected String doInBackground(Void... params) {
 
-
-                String User = getActivity().getIntent().getExtras().getString("USER");
-
-
                 String resultado = new HttpServerConnection().connectToServer(
-                        "https://api.github.com/users/"+User+"/repos", 5000);
+                        "http://www.mocky.io/v2/57eee3822600009324111202", 5000);
                 return resultado;
             }
 

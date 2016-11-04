@@ -1,13 +1,15 @@
-package com.multimedios.proyecto.certamen2_2016;
+package com.multimedios.proyecto.certamen2_2016.Model;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.multimedios.proyecto.certamen2_2016.R;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -15,17 +17,12 @@ import java.util.ArrayList;
  */
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
-    private ArrayList<Repos> mData = new ArrayList<>();
+    private List<Repos> mData = new ArrayList<>();
 
     private LayoutInflater layoutInflater;
 
-    public MyAdapter(ArrayList<Repos> list) {
+    public MyAdapter(List<Repos> list) {
         this.mData = list;
-    }
-
-    public MyAdapter(Context context)
-    {
-        layoutInflater = LayoutInflater.from(context);
     }
 
     @Override
