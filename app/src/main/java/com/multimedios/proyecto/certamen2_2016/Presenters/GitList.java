@@ -70,6 +70,8 @@ public class GitList implements GitListInt {
                         mAdapter = new MyAdapter(lista_repos);
                         mRecyclerView.setAdapter(mAdapter);
 
+
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

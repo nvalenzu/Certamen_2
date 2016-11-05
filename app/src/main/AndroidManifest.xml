@@ -16,10 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Model.ListFragment"
-            android:label="Lista de Repositorios del usuario">
-        </activity>
     </application>
 
 </manifest>
